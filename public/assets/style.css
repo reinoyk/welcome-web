@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+.container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+p {
+    color: #666;
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+/* --- CSS dari details.blade.php --- */
+.details-title {
+    font-weight: bold;
+    font-size: 2em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+.details-content {
+    background: #fafafa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(44, 62, 80, 0.08);
+    margin-bottom: 20px;
+}
+.fact-box {
+    background-color: #e9e9e9;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.fact-title {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+.fact-detail {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* --- CSS dari about.blade.php --- */
+.about-section {
+    padding: 30px 20px;
+    background: #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.about-title {
+    font-size: 2em;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+.about-description {
+    font-size: 1.1em;
+    color: #495057;
+    line-height: 1.6;
+}
