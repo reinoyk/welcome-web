@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Funfacts extends Model
+class Funfact extends Model
 {
     protected $fillable = ['name', 'fact'];
     
-    /** @use HasFactory<\Database\Factories\FunfactsFactory> */
+    /** @use HasFactory<\Database\Factories\FunfactFactory> */
     use HasFactory;
 }

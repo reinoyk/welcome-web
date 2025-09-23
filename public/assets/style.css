@@ -1,32 +1,162 @@
+/* Memberi styling dasar untuk seluruh halaman */
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
+    color: #333;
     margin: 0;
-    padding: 0;
+    padding: 5rem 2rem 2rem 2rem;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Ubah ke flex-start agar konten mulai dari atas */
     min-height: 100vh;
     text-align: center;
 }
+
+/* === STYLING UNTUK NAVBAR === */
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.navbar-brand {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.navbar-add-button {
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-add-button:hover {
+    background-color: #0056b3;
+}
+
+/* === STYLING UMUM & HALAMAN UTAMA === */
 .container {
     background-color: #fff;
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
 }
+
 h1 {
     color: #333;
     font-size: 2.5em;
     margin-bottom: 10px;
 }
+
 p {
     color: #666;
     font-size: 1.2em;
     line-height: 1.5;
 }
 
-/* --- CSS dari details.blade.php --- */
+
+/* === STYLING DARI createfunfact.blade.php (FORM) === */
+.form-container {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: left;
+}
+.form-container h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.form-group {
+    margin-bottom: 1.25rem;
+}
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #555;
+}
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    outline: none;
+}
+button[type="submit"] {
+    width: 100%;
+    padding: 0.85rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+.cancel-link {
+    display: block;
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #7f8c8d;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.cancel-link:hover {
+    color: #34495e;
+}
+.error-container {
+    background-color: #fbeae5;
+    color: #c0392b;
+    border: 1px solid #c0392b;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+.error-container ul {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+
+/* === CSS DARI details.blade.php === */
 .details-title {
     font-weight: bold;
     font-size: 2em;
@@ -59,20 +189,76 @@ p {
     margin-bottom: 0;
 }
 
-/* --- CSS dari about.blade.php --- */
-.about-section {
-    padding: 30px 20px;
-    background: #e9ecef;
-    border-radius: 8px;
-    margin-bottom: 20px;
+
+/* === CSS BARU about.blade.php === */
+.about-header {
+    margin-bottom: 2.5rem; /* Jarak antara header dan daftar fakta */
+    text-align: center;
 }
 .about-title {
-    font-size: 2em;
-    color: #007bff;
-    margin-bottom: 10px;
+    font-size: 2.5em; /* Sedikit lebih besar */
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
 }
 .about-description {
     font-size: 1.1em;
-    color: #495057;
+    color: #7f8c8d;
+    max-width: 600px;
+    margin: 0 auto; /* Pusatkan deskripsi jika lebih pendek dari container */
+}
+.funfact-list {
+    list-style-type: none; /* Hilangkan bullet points */
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 1.5rem; /* Jarak antar kartu */
+}
+.funfact-card {
+    background: #fdfdfd;
+    border: 1px solid #e9ecef;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: left;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.funfact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+}
+.funfact-card-title {
+    font-size: 1.25em;
+    font-weight: bold;
+    color: #34495e;
+    margin: 0 0 0.5rem 0;
+}
+.funfact-card-excerpt {
+    color: #666;
+    margin: 0 0 1.25rem 0; /* Jarak ke tombol */
+    font-size: 1em;
     line-height: 1.6;
 }
+.funfact-card-link {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+.funfact-card-link:hover {
+    background-color: #0056b3;
+}
+.back-link {
+    display: inline-block;
+    margin-top: 2rem;
+    color: #7f8c8d;
+    text-decoration: none;
+    font-weight: bold;
+}
+.back-link:hover {
+    text-decoration: underline;
+}
+

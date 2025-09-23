@@ -1,21 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FunfactController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/About', function () {
-    $funfact = [
-        ["name" => "Funfact 1", "fact" => "I love to play basketball", "id" => 1],
-        ["name" => "Funfact 2", "fact" => "I can play the guitar", "id" => 2],
-        ["name" => "Funfact 3", "fact" => "I like the color blue", "id" => 3],
-    ];
-    return view('components.about', ["funfact" => $funfact]);
-});
-
-Route::get('/About/{id}', function ($id) {
+Route::get('/About', [FunfactController::class, 'index']) ->name('funfact.index');
+Route::get('/About/create', [FunfactController::class, 'create']) ->name('funfact.create');
+Route::post('/About/store', [FunfactController::class, 'store'])->name('funfact.store');
+Route::get('/About/{funfact}', [FunfactController::class, 'show'])->name('funfact.show');
+Route::get('/About/funfact{id}', function ($id) {
     $funfact = [
         ["name" => "Funfact 1", "fact" => "I love to play basketball", "id" => 1],
         ["name" => "Funfact 2", "fact" => "I can play the guitar", "id" => 2],
@@ -30,3 +26,6 @@ Route::get('/About/{id}', function ($id) {
     
     return view('components.details', ["funfact" => $selectedFact]);
 });
+
+
+

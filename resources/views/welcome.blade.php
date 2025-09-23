@@ -10,7 +10,7 @@
     <div class="container">
         <h1>Welcome!</h1>
         <p>Feel free to explore and learn more about me!</p>
-        <a href="/About" class="about-link">Go to About Me</a>
+        <a href="/About" class="navbar-add-button">Go to About Me</a>
     </div>
 </body>
 </html>

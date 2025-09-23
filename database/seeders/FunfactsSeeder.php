@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Funfacts;
+use App\Models\Funfact;
 
 class FunfactsSeeder extends Seeder
 {
@@ -13,6 +13,6 @@ class FunfactsSeeder extends Seeder
      */
     public function run(): void
     {
-        Funfacts::factory()->count(10)->create();
+        Funfact::factory()->count(30)->create();
     }
 }
