@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Funfact;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class FunfactController extends Controller
@@ -16,8 +17,10 @@ class FunfactController extends Controller
 
     // create
     public function create()
-    {
-        return view('components.createfunfacts');
+    {   
+        $categories = Category::all();
+        
+        return view('components.createfunfacts', ["categories" => $categories]);
     }
 
     // store
@@ -27,12 +30,10 @@ class FunfactController extends Controller
         $request->validate([
             'name' => 'required|string|max:100', 
             'fact' => 'required|string|max:255',
+            'category_id' => 'required|exists:categories,id',
         ]);
 
-        Funfact::create([
-            'name' => $request->name,
-            'fact' => $request->fact,
-        ]);
+        Funfact::create($request->all());
 
         return redirect()->route('funfact.index')->with('success', 'Funfact created successfully.');
     }
@@ -40,7 +41,7 @@ class FunfactController extends Controller
 
     // show
     public function show(Funfact $funfact)
-    {
+    {   
         return view('components.details', ["funfact" => $funfact]);
     }
 

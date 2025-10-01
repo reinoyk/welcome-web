@@ -28,7 +28,7 @@
             color: #2c3e50;
             font-size: 2.2rem;
             font-weight: bold;
-            margin-bottom: 1.5rem; /* Memberi jarak ke form di bawahnya */
+            margin-bottom: 1.5rem; 
             text-align: center;
         }
         /* ==================================== */
@@ -108,10 +108,10 @@
     </style>
 </head>
 <body>
-    {{-- Memasukkan navbar Anda --}}
+    @csrf
+
     @include('partials.navbar')
 
-    {{-- Kita bungkus konten utama agar lebih rapi --}}
     <main>
         <h1 class="page-title">Buat Funfact Baru</h1>
 
@@ -137,6 +137,18 @@
                 <div class="form-group">
                     <label for="fact">The Fact</label>
                     <textarea id="fact" name="fact" rows="4" required>{{ old('fact') }}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="category_id">Category ID</label>
+                    <select name="category_id" id="category_id" required>
+                        <option value="" disabled selected>Select a category</option>
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                {{ $category->name }}
+                            </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <button type="submit">Save Funfact</button>

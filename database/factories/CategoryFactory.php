@@ -3,12 +3,11 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Category;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Funfacts>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
  */
-class FunfactFactory extends Factory
+class CategoryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,10 +17,8 @@ class FunfactFactory extends Factory
     public function definition(): array
     {
         return [
-            //masukan data dummy disini
             'name' => $this->faker->sentence(3),
-            'fact' => $this->faker->paragraph(),
-            'category_id' => Category::inRandomOrder()->first()->id,
+            'description' => $this->faker->paragraph(),
         ];
     }
 }

@@ -80,6 +80,23 @@
         .back-link:hover {
             text-decoration: underline;
         }
+        .view-more-btn {
+            background-color: transparent;
+            color: #007bff;
+            border: 1px solid #007bff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.8em;
+            transition: all 0.3s ease;
+            white-space: nowrap; /* Mencegah teks tombol terlipat */
+        }
+        .view-more-btn:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        
         .pagination {
             display: flex;
             justify-content: center;
@@ -127,13 +144,12 @@
         </header>
 
         <ul class="funfact-list">
-            {{-- Menggunakan variabel $funfact sesuai kode asli Anda --}}
             @foreach($funfact as $fact)
                 <li class="funfact-card">
                     <h2 class="funfact-card-title">{{ $fact->name }}</h2>
-                    {{-- Mengakses 'fact' sebagai array sesuai kode asli Anda --}}
                     <p class="funfact-card-excerpt">{{ $fact['fact'] }}</p>
-                    {{-- Link dikembalikan ke bentuk asli Anda --}}
+                    <p class="funfact-card-title">Category: {{ $fact->category->name }}</p>
+                    <a href="{{ route('funfact.show', $fact->id) }}" class="funfact-card-link">Read More</a>
                 </li>
             @endforeach
         </ul>
